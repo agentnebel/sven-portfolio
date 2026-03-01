@@ -2,13 +2,13 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Briefcase, GraduationCap, Zap } from "lucide-react";
+import { Briefcase, GraduationCap, Camera, Settings } from "lucide-react";
 
 // Placeholder data until user provides their LinkedIn CV
 const vitaData = [
     {
         id: 1,
-        type: "focus",
+        type: "operations",
         title: "Operations & System Management",
         company: "E-Commerce Operations Manager",
         date: "7+ Years Experience",
@@ -32,7 +32,7 @@ const vitaData = [
     },
     {
         id: 4,
-        type: "focus",
+        type: "photography",
         title: "Professional Photography",
         company: "Visual Arts & Storytelling",
         date: "10+ Years Experience",
@@ -53,7 +53,8 @@ export default function Vita() {
 
     const getIcon = (type: string) => {
         switch (type) {
-            case "focus": return <Zap className="w-5 h-5 text-electric-blue" />;
+            case "operations": return <Settings className="w-5 h-5 text-electric-blue" />;
+            case "photography": return <Camera className="w-5 h-5 text-white" />;
             case "experience": return <Briefcase className="w-5 h-5 text-cyber-purple" />;
             case "education": return <GraduationCap className="w-5 h-5 text-sunset-orange" />;
             default: return null;
@@ -62,7 +63,8 @@ export default function Vita() {
 
     const getGlow = (type: string) => {
         switch (type) {
-            case "focus": return "neon-glow-blue border-electric-blue";
+            case "operations": return "neon-glow-blue border-electric-blue";
+            case "photography": return "shadow-[0_0_15px_rgba(255,255,255,0.5)] border-white/50";
             case "experience": return "neon-glow-purple border-cyber-purple";
             case "education": return "shadow-[0_0_15px_var(--color-sunset-orange)] inset-[0_0_10px_var(--color-sunset-orange)] border-sunset-orange";
             default: return "border-white/20";

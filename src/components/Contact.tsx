@@ -20,7 +20,7 @@ export default function Contact() {
                         viewport={{ once: true }}
                         className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500 mb-6"
                     >
-                        Let&apos;s Build Something
+                        Let&apos;s brainstorm together
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
