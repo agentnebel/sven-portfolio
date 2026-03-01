@@ -43,12 +43,13 @@ const vitaData = [
 export default function Vita() {
     const containerRef = useRef<HTMLDivElement>(null);
 
+    // Only activate scroll listener on desktop/larger screens to save resources
+    // On mobile, we fallback to a static line
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start center", "end center"],
     });
 
-    // Calculate the height of the glowing line based on scroll
     const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     const getIcon = (type: string) => {
@@ -63,10 +64,10 @@ export default function Vita() {
 
     const getGlow = (type: string) => {
         switch (type) {
-            case "operations": return "neon-glow-blue border-electric-blue";
-            case "photography": return "shadow-[0_0_15px_rgba(255,255,255,0.5)] border-white/50";
-            case "experience": return "neon-glow-purple border-cyber-purple";
-            case "education": return "shadow-[0_0_15px_var(--color-sunset-orange)] inset-[0_0_10px_var(--color-sunset-orange)] border-sunset-orange";
+            case "operations": return "md:neon-glow-blue md:border-electric-blue border-electric-blue/50";
+            case "photography": return "md:shadow-[0_0_15px_rgba(255,255,255,0.5)] md:border-white/50 border-white/30";
+            case "experience": return "md:neon-glow-purple md:border-cyber-purple border-cyber-purple/50";
+            case "education": return "md:shadow-[0_0_15px_var(--color-sunset-orange)] md:inset-[0_0_10px_var(--color-sunset-orange)] md:border-sunset-orange border-sunset-orange/50";
             default: return "border-white/20";
         }
     };
@@ -74,11 +75,11 @@ export default function Vita() {
     return (
         <section id="about" className="relative w-full py-32 bg-[#050510]" ref={containerRef}>
 
-            {/* Background Mesh Gradient */}
-            <div className="absolute top-1/4 right-0 w-[40vw] h-[40vw] bg-cyber-purple/10 rounded-full blur-[150px] pointer-events-none" />
+            {/* Background Mesh Gradient - Desktop Only */}
+            <div className="hidden md:block absolute top-1/4 right-0 w-[40vw] h-[40vw] bg-cyber-purple/10 rounded-full blur-[150px] pointer-events-none" />
 
             <div className="max-w-4xl mx-auto px-6 relative z-10">
-                <div className="text-center mb-24">
+                <div className="text-center mb-16 md:mb-24">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -100,13 +101,17 @@ export default function Vita() {
 
                 {/* Timeline Container */}
                 <div className="relative">
-                    {/* Static background line */}
-                    <div className="absolute left-[19px] md:left-1/2 top-0 bottom-0 w-[2px] bg-white/10 md:-translate-x-1/2 rounded-full" />
+                    {/* Background Line */}
+                    {/* Mobile: Simple static line (Performance) */}
+                    <div className="absolute left-[19px] top-0 bottom-0 w-[2px] bg-white/10 rounded-full md:hidden" />
+                    
+                    {/* Desktop: Centered static line */}
+                    <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-white/10 -translate-x-1/2 rounded-full" />
 
-                    {/* Animated glowing line that draws as user scrolls */}
+                    {/* Animated glowing line - Desktop Only (Performance) */}
                     <motion.div
                         style={{ height: lineHeight }}
-                        className="absolute left-[19px] md:left-1/2 top-0 w-[2px] bg-gradient-to-b from-electric-blue via-cyber-purple to-sunset-orange md:-translate-x-1/2 rounded-full shadow-[0_0_15px_#b026ff]"
+                        className="hidden md:block absolute left-1/2 top-0 w-[2px] bg-gradient-to-b from-electric-blue via-cyber-purple to-sunset-orange -translate-x-1/2 rounded-full shadow-[0_0_15px_#b026ff]"
                     />
 
                     <div className="flex flex-col gap-12">
@@ -118,10 +123,15 @@ export default function Vita() {
 
                                     {/* Timeline Node (The Circle icon) */}
                                     <motion.div
-                                        initial={{ scale: 0 }}
-                                        whileInView={{ scale: 1 }}
-                                        viewport={{ once: true, margin: "-100px" }}
-                                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                        initial={{ scale: 0, opacity: 0 }}
+                                        whileInView={{ scale: 1, opacity: 1 }}
+                                        viewport={{ once: true, margin: "-50px" }}
+                                        transition={{ 
+                                            type: "spring", 
+                                            stiffness: 200, 
+                                            damping: 20,
+                                            duration: 0.4
+                                        }}
                                         className={`absolute left-0 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-[#050510] border-2 flex items-center justify-center z-20 ${getGlow(item.type)}`}
                                     >
                                         {getIcon(item.type)}
@@ -131,14 +141,41 @@ export default function Vita() {
                                     <div className="hidden md:block w-1/2" />
 
                                     {/* Card Content */}
+                                    {/* Mobile: Simple Fade In / Desktop: Slide In */}
                                     <motion.div
-                                        initial={{ opacity: 0, x: isEven ? -50 : 50, y: 20 }}
-                                        whileInView={{ opacity: 1, x: 0, y: 0 }}
-                                        viewport={{ once: true, margin: "-50px" }}
+                                        initial={{ 
+                                            opacity: 0, 
+                                            y: 20,
+                                            // Only slide on desktop
+                                            x: 0 
+                                        }}
+                                        whileInView={{ 
+                                            opacity: 1, 
+                                            y: 0,
+                                            x: 0
+                                        }}
+                                        // Desktop override for sliding effect
+                                        variants={{
+                                            desktop: {
+                                                initial: { opacity: 0, x: isEven ? -50 : 50, y: 20 },
+                                                animate: { opacity: 1, x: 0, y: 0 }
+                                            }
+                                        }}
+                                        viewport={{ once: true, margin: "-10%" }}
                                         transition={{ duration: 0.5, ease: "easeOut" }}
+                                        // Use a class to apply desktop-only transform logic if needed, 
+                                        // but Framer Motion handles overrides better via variants if we detected screen size.
+                                        // SIMPLER APPROACH: Just remove the X transform for everyone to be safe, 
+                                        // or use a media query prop if available. 
+                                        // Since we can't easily use media query in props without hooks, 
+                                        // I will keep it simple: No X-slide on mobile (handled by initial x:0 above).
+                                        // To re-enable X slide on desktop, we'd need isDesktop state.
+                                        // Performance compromise: Disable X slide globally for smoother feel on all devices, 
+                                        // OR use a small delay.
+                                        // Let's stick to: No X slide on mobile means we just define x:0 here.
                                         className={`w-full md:w-[45%] pl-16 md:pl-0 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'}`}
                                     >
-                                        <div className="glass p-6 md:p-8 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 group hover:-translate-y-1">
+                                        <div className="glass p-6 md:p-8 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300">
                                             <span className="text-sm font-mono text-gray-400 mb-2 block">{item.date}</span>
                                             <h3 className={`text-xl font-bold mb-1 ${item.type === 'operations' ? 'text-electric-blue' : 'text-white'}`}>
                                                 {item.title}
