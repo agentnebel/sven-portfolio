@@ -41,14 +41,18 @@ export default function Contact() {
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
                     >
-                        <a
-                            href="mailto:s.belz@me.com"
-                            className="px-10 py-5 rounded-2xl flex items-center justify-center gap-3 font-bold text-white bg-gradient-to-r from-sunset-orange/20 to-cyber-purple/20 border border-sunset-orange/50 hover:bg-sunset-orange/30 transition-all duration-300 group relative overflow-hidden shadow-[0_0_20px_rgba(255,94,0,0.15)] hover:shadow-[0_0_30px_rgba(255,94,0,0.3)] hover:-translate-y-1"
+                        <button
+                            onClick={() => {
+                                const user = "s.belz";
+                                const domain = "me.com";
+                                window.location.href = `mailto:${user}@${domain}`;
+                            }}
+                            className="px-10 py-5 rounded-2xl flex items-center justify-center gap-3 font-bold text-white bg-gradient-to-r from-sunset-orange/20 to-cyber-purple/20 border border-sunset-orange/50 hover:bg-sunset-orange/30 transition-all duration-300 group relative overflow-hidden shadow-[0_0_20px_rgba(255,94,0,0.15)] hover:shadow-[0_0_30px_rgba(255,94,0,0.3)] hover:-translate-y-1 w-full"
                         >
                             <div className="absolute inset-0 bg-gradient-to-r from-sunset-orange to-cyber-purple opacity-0 group-hover:opacity-20 transition-opacity" />
                             <Mail className="w-6 h-6 relative z-10 group-hover:scale-110 transition-transform" />
                             <span className="relative z-10 text-xl tracking-wide">Email Me</span>
-                        </a>
+                        </button>
                     </motion.div>
 
                     <motion.div
