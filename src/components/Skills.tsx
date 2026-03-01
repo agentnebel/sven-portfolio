@@ -63,7 +63,7 @@ export default function Skills() {
             <div className="relative flex flex-col gap-8 w-[200vw] sm:w-[150vw] md:w-[120vw] lg:w-[110vw] max-w-none left-1/2 -translate-x-1/2 select-none z-10">
 
                 {/* Top Marquee (Left to Right) */}
-                <div className="flex w-max overflow-hidden">
+                <div className="flex w-max py-6 relative z-20">
                     <motion.div
                         initial={{ x: "0%" }}
                         animate={{ x: "-50%" }}
@@ -85,7 +85,7 @@ export default function Skills() {
                 </div>
 
                 {/* Bottom Marquee (Right to Left) */}
-                <div className="flex w-max overflow-hidden">
+                <div className="flex w-max py-6 relative z-20">
                     <motion.div
                         initial={{ x: "-50%" }}
                         animate={{ x: "0%" }}
