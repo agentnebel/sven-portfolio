@@ -7,8 +7,8 @@ export default function Hero() {
     return (
         <section className="relative min-h-screen flex flex-col justify-center items-center w-full px-6 py-20">
 
-            {/* Background Animated Gradient Meshes */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            {/* Background Animated Gradient Meshes - Desktop Only */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 hidden md:block">
                 <motion.div
                     animate={{
                         scale: [1, 1.2, 1],
@@ -41,8 +41,15 @@ export default function Hero() {
                     style={{ willChange: "transform" }}
                     className="absolute top-1/2 -right-1/4 w-[60vw] h-[60vw] bg-electric-blue/20 rounded-full blur-[150px]"
                 />
+            </div>
 
-                {/* Particle System emulation layer could go here */}
+            {/* Static Mobile Background - Lightweight */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 md:hidden">
+                <div className="absolute -top-20 -left-20 w-80 h-80 bg-cyber-purple/15 rounded-full blur-[80px]" />
+                <div className="absolute top-1/3 -right-20 w-80 h-80 bg-electric-blue/15 rounded-full blur-[80px]" />
+            </div>
+
+            {/* Particle System emulation layer could go here */}
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-20 mix-blend-overlay"></div>
             </div>
 

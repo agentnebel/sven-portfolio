@@ -3,21 +3,28 @@
 @theme {
   --color-background: #050510;
   --color-foreground: #ededed;
-
   /* Cyber accents */
   --color-cyber-purple: #b026ff;
   --color-electric-blue: #00e5ff;
   --color-sunset-orange: #ff5e00;
-
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
-
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @layer base {
-  * {
-    cursor: url('/sven-portfolio/cursor.svg') 12 12, auto;
+  /* Custom Cursor - Desktop only */
+  @media (hover: hover) and (pointer: fine) {
+    * {
+      cursor: url('/sven-portfolio/cursor.svg') 12 12, auto;
+    }
+    
+    body {
+      /* Interactive Elements - Desktop only */
+      a, button, [role="button"], input, select, textarea {
+        cursor: url('/sven-portfolio/cursor-hover.svg') 16 16, pointer !important;
+      }
+    }
   }
 
   body {
@@ -25,36 +32,67 @@
     color: var(--color-foreground);
     @apply antialiased overflow-x-hidden selection:bg-electric-blue/30 selection:text-white relative;
   }
-
-  /* Interactive Elements */
-  a,
-  button,
-  [role="button"],
-  input,
-  select,
-  textarea {
-    cursor: url('/sven-portfolio/cursor-hover.svg') 16 16, pointer !important;
-  }
 }
 
 @layer utilities {
+  /* Base glass effect - simplified for mobile */
   .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-lg shadow-black/10;
+    @apply bg-white/5 border border-white/10;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
-
+  
+  /* Desktop: full backdrop blur */
+  @media (hover: hover) and (pointer: fine) {
+    .glass {
+      @apply backdrop-blur-md shadow-lg shadow-black/10;
+    }
+  }
+  
+  /* Neon glows - simplified for mobile */
   .neon-glow-blue {
-    box-shadow: 0 0 15px var(--color-electric-blue), inset 0 0 10px var(--color-electric-blue);
+    box-shadow: 0 0 8px var(--color-electric-blue);
   }
-
+  
   .neon-glow-purple {
-    box-shadow: 0 0 15px var(--color-cyber-purple), inset 0 0 10px var(--color-cyber-purple);
+    box-shadow: 0 0 8px var(--color-cyber-purple);
   }
-
+  
+  /* Desktop: stronger glows */
+  @media (hover: hover) and (pointer: fine) {
+    .neon-glow-blue {
+      box-shadow: 0 0 15px var(--color-electric-blue), inset 0 0 10px var(--color-electric-blue);
+    }
+    
+    .neon-glow-purple {
+      box-shadow: 0 0 15px var(--color-cyber-purple), inset 0 0 10px var(--color-cyber-purple);
+    }
+  }
+  
+  /* Neon text - simplified for mobile */
   .neon-text-blue {
-    text-shadow: 0 0 8px var(--color-electric-blue);
+    text-shadow: 0 0 4px var(--color-electric-blue);
   }
-
+  
   .neon-text-purple {
-    text-shadow: 0 0 8px var(--color-cyber-purple);
+    text-shadow: 0 0 4px var(--color-cyber-purple);
+  }
+  
+  /* Desktop: stronger text glow */
+  @media (hover: hover) and (pointer: fine) {
+    .neon-text-blue {
+      text-shadow: 0 0 8px var(--color-electric-blue), 0 0 16px var(--color-electric-blue);
+    }
+    
+    .neon-text-purple {
+      text-shadow: 0 0 8px var(--color-cyber-purple), 0 0 16px var(--color-cyber-purple);
+    }
+  }
+  
+  /* Performance utility - disable animations on mobile */
+  @media (prefers-reduced-motion: reduce), (hover: none) {
+    .motion-reduce {
+      animation: none !important;
+      transition: none !important;
+    }
   }
 }

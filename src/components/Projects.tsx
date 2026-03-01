@@ -41,8 +41,23 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
     const cardRef = useRef<HTMLDivElement>(null);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
+    // Check for touch device/mobile to disable tilt
+    const [isMobile, setIsMobile] = useState(true);
 
     useEffect(() => {
+        setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+        
+        const handleResize = () => {
+             setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+        };
+        
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    useEffect(() => {
+        if (isMobile) return; // Skip mouse tracking on mobile
+        
         const handleMouseMove = (e: MouseEvent) => {
             if (!cardRef.current) return;
             const rect = cardRef.current.getBoundingClientRect();
@@ -59,14 +74,15 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
         }
 
         return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, [isHovered]);
+    }, [isHovered, isMobile]);
 
     return (
         <Tilt
-            tiltMaxAngleX={10}
-            tiltMaxAngleY={10}
-            scale={1.02}
+            tiltMaxAngleX={isMobile ? 0 : 10}
+            tiltMaxAngleY={isMobile ? 0 : 10}
+            scale={isMobile ? 1 : 1.02}
             transitionSpeed={2500}
+            tiltEnable={!isMobile}
             className="h-full"
         >
             <div
