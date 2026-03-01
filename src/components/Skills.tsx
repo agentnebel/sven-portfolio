@@ -66,6 +66,7 @@ export default function Skills() {
                         initial={{ x: "0%" }}
                         animate={{ x: "-50%" }}
                         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                        style={{ willChange: "transform" }}
                         className="flex gap-6 pr-6"
                     >
                         {[...topMarquee, ...topMarquee].map((skill, index) => (
@@ -88,6 +89,7 @@ export default function Skills() {
                         initial={{ x: "-50%" }}
                         animate={{ x: "0%" }}
                         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                        style={{ willChange: "transform" }}
                         className="flex gap-6 pr-6"
                     >
                         {[...bottomMarquee, ...bottomMarquee].map((skill, index) => (

@@ -22,6 +22,7 @@ export default function Hero() {
                         repeatType: "mirror",
                         ease: "easeInOut",
                     }}
+                    style={{ willChange: "transform" }}
                     className="absolute -top-1/4 -left-1/4 w-[50vw] h-[50vw] bg-cyber-purple/20 rounded-full blur-[120px]"
                 />
                 <motion.div
@@ -37,6 +38,7 @@ export default function Hero() {
                         repeatType: "mirror",
                         ease: "easeInOut",
                     }}
+                    style={{ willChange: "transform" }}
                     className="absolute top-1/2 -right-1/4 w-[60vw] h-[60vw] bg-electric-blue/20 rounded-full blur-[150px]"
                 />
 
