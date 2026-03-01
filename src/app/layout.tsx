@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
-import Cursor from "@/components/Cursor";
 import "./globals.css";
 
 const interSans = Inter({
@@ -28,7 +27,6 @@ export default function RootLayout({
       <body
         className={`${interSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Cursor />
         {children}
       </body>
     </html>

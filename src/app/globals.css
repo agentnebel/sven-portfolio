@@ -3,7 +3,7 @@
 @theme {
   --color-background: #050510;
   --color-foreground: #ededed;
-  
+
   /* Cyber accents */
   --color-cyber-purple: #b026ff;
   --color-electric-blue: #00e5ff;
@@ -11,40 +11,49 @@
 
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
-  
+
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @layer base {
   * {
-    cursor: none; /* Hide default cursor for standard elements to show custom one */
+    cursor: url('/sven-portfolio/cursor.svg') 12 12, auto;
   }
-  
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     @apply antialiased overflow-x-hidden selection:bg-electric-blue/30 selection:text-white relative;
   }
 
-  /* Ensure interactive elements also hide cursor but remain clickable */
-  a, button, input, select, textarea {
-    cursor: none !important;
+  /* Interactive Elements */
+  a,
+  button,
+  [role="button"],
+  input,
+  select,
+  textarea {
+    cursor: url('/sven-portfolio/cursor-hover.svg') 16 16, pointer !important;
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+    @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_4px_30px_rgba(0, 0, 0, 0.1)];
   }
+
   .neon-glow-blue {
     box-shadow: 0 0 15px var(--color-electric-blue), inset 0 0 10px var(--color-electric-blue);
   }
+
   .neon-glow-purple {
     box-shadow: 0 0 15px var(--color-cyber-purple), inset 0 0 10px var(--color-cyber-purple);
   }
+
   .neon-text-blue {
     text-shadow: 0 0 8px var(--color-electric-blue);
   }
+
   .neon-text-purple {
     text-shadow: 0 0 8px var(--color-cyber-purple);
   }
