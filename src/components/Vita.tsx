@@ -114,7 +114,7 @@ export default function Vita() {
                             const isEven = index % 2 === 0;
 
                             return (
-                                <div key={item.id} className={`relative flex items-center w-full ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                                <div key={item.id} className={`relative flex items-center w-full ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
 
                                     {/* Timeline Node (The Circle icon) */}
                                     <motion.div
@@ -127,7 +127,7 @@ export default function Vita() {
                                         {getIcon(item.type)}
                                     </motion.div>
 
-                                    {/* Desktop Layout Helper: Left/Right side spacing */}
+                                    {/* Desktop Layout Helper: Empty side */}
                                     <div className="hidden md:block w-1/2" />
 
                                     {/* Card Content */}
