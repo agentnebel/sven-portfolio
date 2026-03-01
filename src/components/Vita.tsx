@@ -89,10 +89,10 @@ export default function Vita() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                        className="text-xl text-gray-400"
+                        transition={{ delay: 0.1 }}
+                        className="text-gray-400 text-lg md:text-xl"
                     >
-                        A timeline of caffeine consumption and code commits.
+                        A timeline of caffeine consumption and a lot of brainpower
                     </motion.p>
                 </div>
 

@@ -56,7 +56,7 @@ export default function Skills() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="text-xl text-gray-400"
                 >
-                    The tools I use to bend the digital world to my will.
+                    A synthesis of global commerce operations, AI-driven logic, and visual storytelling.
                 </motion.p>
             </div>
 
