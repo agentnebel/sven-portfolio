@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import Tilt from "react-parallax-tilt";
 import { Github, ExternalLink } from "lucide-react";
 
-// Authentic data provided by Sven and scraped from GitHub
+// Authentic data scraped from GitHub profile "agentnebel"
 const projectsData = [
     {
         id: 1,
@@ -18,24 +18,6 @@ const projectsData = [
     },
     {
         id: 2,
-        title: "Global Rollout P.Rim & USA",
-        description: "Technical lead support for the US market entry and expansion into 15 Pacific Rim countries.",
-        tags: ["Project Mgmt", "Global Ops", "System Architecture"],
-        githubUrl: "https://github.com/agentnebel",
-        demoUrl: "#",
-        isVibecoding: false,
-    },
-    {
-        id: 3,
-        title: "Omnichannel Integration",
-        description: "Implementation of the 'New Bike Day' pickup process, seamlessly connecting online and offline retail.",
-        tags: ["UX/UI", "Commerce", "Integration"],
-        githubUrl: "https://github.com/agentnebel",
-        demoUrl: "#",
-        isVibecoding: true,
-    },
-    {
-        id: 4,
         title: "Daily Dose",
         description: "A productivity-focused application designed to streamline daily routines and enhance focus.",
         tags: ["Productivity", "Utility", "UX"],
@@ -44,16 +26,7 @@ const projectsData = [
         isVibecoding: false,
     },
     {
-        id: 5,
-        title: "Photography Portfolio",
-        description: "A decade of experience as a Wedding and Portrait Photographer, capturing unposed, journalistic moments.",
-        tags: ["Photography", "Creative", "Visual Arts"],
-        githubUrl: "https://www.svenbelz.com/",
-        demoUrl: "https://www.hochzeitsfotograf-limburg.com/",
-        isVibecoding: false,
-    },
-    {
-        id: 6,
+        id: 3,
         title: "Vibecoding Portfolio",
         description: "Personal Portfolio and CV website built with Next.js and Framer Motion, featuring native SVG neon cursors and automated deployments.",
         tags: ["Next.js", "Tailwind", "GitHub Actions"],
@@ -193,11 +166,11 @@ export default function Projects() {
                         transition={{ delay: 0.2 }}
                         className="text-xl text-gray-400 max-w-2xl mx-auto"
                     >
-                        A collection of open-source creations. Hover to interact.
+                        Real code from agentnebel. Hover to interact.
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projectsData.map((project, index) => (
                         <motion.div
                             key={project.id}
