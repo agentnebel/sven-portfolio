@@ -7,6 +7,7 @@ const skillsData = [
     { name: "Google Antigravity", category: "Vibecoding Stack" },
     { name: "OpenClaw AI", category: "Vibecoding Stack" },
     { name: "LLMs & Prompt Eng.", category: "Vibecoding Stack" },
+    { name: "n8n", category: "Vibecoding Stack" },
     { name: "Photography", category: "Creative" },
     { name: "Digital Experience", category: "Frontend" },
     { name: "Finance & Accounting", category: "Tools" },
@@ -17,7 +18,7 @@ const skillsData = [
 export default function Skills() {
     // We'll create a double marquee effect (one moving left, one right)
     const topMarquee = skillsData.slice(0, 5);
-    const bottomMarquee = skillsData.slice(5, 9);
+    const bottomMarquee = skillsData.slice(5, 10);
 
     const getCategoryColor = (category: string) => {
         switch (category) {
