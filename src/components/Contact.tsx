@@ -58,10 +58,10 @@ export default function Contact() {
                         transition={{ delay: 0.3 }}
                     >
                         <a
-                            href="https://linkedin.com/in/SvenBelz"
+                            href="https://www.linkedin.com/in/sven-belz/"
                             target="_blank"
                             rel="noreferrer"
-                            className="group relative p-5 glass rounded-2xl border border-white/10 hover:border-cyber-purple/50 transition-all duration-300 overflow-hidden shadow-[0_0_20px_rgba(176,38,255,0.1)] hover:shadow-[0_0_30px_rgba(176,38,255,0.25)] hover:-translate-y-1"
+                            className="group relative inline-flex items-center justify-center p-5 glass rounded-2xl border border-white/10 hover:border-cyber-purple/50 transition-all duration-300 overflow-hidden shadow-[0_0_20px_rgba(176,38,255,0.1)] hover:shadow-[0_0_30px_rgba(176,38,255,0.25)] hover:-translate-y-1"
                         >
                             <div className="absolute inset-0 bg-cyber-purple/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
                             <Linkedin className="w-8 h-8 text-gray-300 group-hover:text-cyber-purple relative z-10 transition-colors group-hover:scale-110" />

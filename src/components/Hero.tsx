@@ -71,15 +71,18 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                    className="text-md md:text-xl text-gray-400 font-light flex flex-wrap justify-center items-center gap-y-2"
+                    className="text-md md:text-xl text-gray-400 font-light flex flex-wrap justify-center items-center gap-y-3"
                 >
-                    E-commerce Ops <span className="text-sunset-orange mx-2 hidden sm:inline">•</span>
+                    <span className="text-electric-blue neon-text-blue font-medium tracking-wide">E-commerce Ops</span>
+                    <span className="text-sunset-orange mx-2 hidden sm:inline">•</span>
                     <span className="text-sunset-orange sm:hidden block w-full"></span>
-                    AI Specialist <span className="text-sunset-orange mx-2 hidden sm:inline">•</span>
+                    <span className="text-cyber-purple neon-text-purple font-medium tracking-wide">AI Specialist</span>
+                    <span className="text-sunset-orange mx-2 hidden sm:inline">•</span>
                     <span className="text-sunset-orange sm:hidden block w-full"></span>
-                    Photographer <span className="text-sunset-orange mx-2 hidden sm:inline">•</span>
+                    <span className="text-sunset-orange drop-shadow-[0_0_8px_rgba(255,94,0,0.8)] font-medium tracking-wide">Photographer</span>
+                    <span className="text-sunset-orange mx-2 hidden sm:inline">•</span>
                     <span className="text-sunset-orange sm:hidden block w-full"></span>
-                    Digital Creator
+                    <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] font-medium tracking-wide">Digital Creator</span>
                 </motion.p>
 
                 <motion.div
