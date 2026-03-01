@@ -5,51 +5,60 @@ import { useState, useRef, useEffect } from "react";
 import Tilt from "react-parallax-tilt";
 import { Github, ExternalLink } from "lucide-react";
 
-// Authentic data provided by Sven
+// Authentic data provided by Sven and scraped from GitHub
 const projectsData = [
     {
         id: 1,
+        title: "Automated Performance Dashboard",
+        description: "A monthly Core Web Vitals report tracking LCP, CLS, and INP for industry leaders like Canyon, Specialized, and Rose Bikes. Automated via GitHub Actions + CrUX API.",
+        tags: ["Performance", "CrUX API", "Automation"],
+        githubUrl: "https://github.com/agentnebel/cwv-monthly-report",
+        demoUrl: "https://agentnebel.github.io/cwv-monthly-report/",
+        isVibecoding: true,
+    },
+    {
+        id: 2,
         title: "Global Rollout P.Rim & USA",
         description: "Technical lead support for the US market entry and expansion into 15 Pacific Rim countries.",
         tags: ["Project Mgmt", "Global Ops", "System Architecture"],
-        githubUrl: "#", // Add your real links later
+        githubUrl: "https://github.com/agentnebel",
         demoUrl: "#",
         isVibecoding: false,
     },
     {
-        id: 2,
+        id: 3,
         title: "Omnichannel Integration",
         description: "Implementation of the 'New Bike Day' pickup process, seamlessly connecting online and offline retail.",
         tags: ["UX/UI", "Commerce", "Integration"],
-        githubUrl: "#",
+        githubUrl: "https://github.com/agentnebel",
         demoUrl: "#",
         isVibecoding: true,
     },
     {
-        id: 3,
-        title: "Compliance Framework",
-        description: "Technical architecture and deployment of highly specific data privacy regulations to minimize risk (GDPR).",
-        tags: ["GDPR", "Privacy", "Tech Architecture"],
-        githubUrl: "#",
-        demoUrl: "#",
+        id: 4,
+        title: "Daily Dose",
+        description: "A productivity-focused application designed to streamline daily routines and enhance focus.",
+        tags: ["Productivity", "Utility", "UX"],
+        githubUrl: "https://github.com/agentnebel/dailydose",
+        demoUrl: "https://agentnebel.github.io/dailydose/",
         isVibecoding: false,
     },
     {
-        id: 4,
+        id: 5,
         title: "Photography Portfolio",
-        description: "A decade of experience as a Wedding and Portrait Photographer based in Limburg an der Lahn, capturing unposed, journalistic moments.",
+        description: "A decade of experience as a Wedding and Portrait Photographer, capturing unposed, journalistic moments.",
         tags: ["Photography", "Creative", "Visual Arts"],
         githubUrl: "https://www.svenbelz.com/",
         demoUrl: "https://www.hochzeitsfotograf-limburg.com/",
         isVibecoding: false,
     },
     {
-        id: 5,
+        id: 6,
         title: "Vibecoding Portfolio",
-        description: "Personal Portfolio and CV website built with Next.js, Framer Motion, and Tailwind CSS, focusing on high-end aesthetics.",
-        tags: ["Next.js", "Tailwind", "Framer Motion"],
-        githubUrl: "https://github.com/SvenBelz",
-        demoUrl: "https://svenbelz.com",
+        description: "Personal Portfolio and CV website built with Next.js and Framer Motion, featuring native SVG neon cursors and automated deployments.",
+        tags: ["Next.js", "Tailwind", "GitHub Actions"],
+        githubUrl: "https://github.com/agentnebel/sven-portfolio",
+        demoUrl: "https://agentnebel.github.io/sven-portfolio/",
         isVibecoding: true,
     },
 ];
