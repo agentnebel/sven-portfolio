@@ -83,7 +83,7 @@ export default function Vita() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-500 mb-6"
+                        className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-500 mb-6 pb-2 leading-tight"
                     >
                         My Journey
                     </motion.h2>
@@ -114,7 +114,7 @@ export default function Vita() {
                             const isEven = index % 2 === 0;
 
                             return (
-                                <div key={item.id} className="relative flex items-center md:justify-between w-full">
+                                <div key={item.id} className={`relative flex items-center w-full ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
 
                                     {/* Timeline Node (The Circle icon) */}
                                     <motion.div
@@ -122,25 +122,25 @@ export default function Vita() {
                                         whileInView={{ scale: 1 }}
                                         viewport={{ once: true, margin: "-100px" }}
                                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                        className={`absolute left-0 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-[#050510] border-2 flex items-center justify-center z-10 ${getGlow(item.type)}`}
+                                        className={`absolute left-0 md:left-1/2 md:-translate-x-1/2 w-10 h-10 rounded-full bg-[#050510] border-2 flex items-center justify-center z-20 ${getGlow(item.type)}`}
                                     >
                                         {getIcon(item.type)}
                                     </motion.div>
 
-                                    {/* Desktop Layout Helper Left / Right Elements */}
-                                    <div className="hidden md:block w-5/12" />
+                                    {/* Desktop Layout Helper: Left/Right side spacing */}
+                                    <div className="hidden md:block w-1/2" />
 
                                     {/* Card Content */}
                                     <motion.div
-                                        initial={{ opacity: 0, x: isEven ? 50 : -50, y: 20 }}
+                                        initial={{ opacity: 0, x: isEven ? -50 : 50, y: 20 }}
                                         whileInView={{ opacity: 1, x: 0, y: 0 }}
                                         viewport={{ once: true, margin: "-50px" }}
                                         transition={{ duration: 0.5, ease: "easeOut" }}
-                                        className={`w-full md:w-5/12 pl-16 md:pl-0 ${isEven ? 'md:order-1' : 'md:text-right md:pr-16 md:-ml-16'}`}
+                                        className={`w-full md:w-[45%] pl-16 md:pl-0 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'}`}
                                     >
                                         <div className="glass p-6 md:p-8 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300 group hover:-translate-y-1">
                                             <span className="text-sm font-mono text-gray-400 mb-2 block">{item.date}</span>
-                                            <h3 className={`text-xl font-bold mb-1 ${item.type === 'focus' ? 'text-electric-blue' : 'text-white'}`}>
+                                            <h3 className={`text-xl font-bold mb-1 ${item.type === 'operations' ? 'text-electric-blue' : 'text-white'}`}>
                                                 {item.title}
                                             </h3>
                                             <h4 className="text-md text-cyber-purple font-medium mb-4">{item.company}</h4>
