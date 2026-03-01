@@ -11,16 +11,13 @@ const skillsData = [
     { name: "Digital Experience", category: "Frontend" },
     { name: "Finance & Accounting", category: "Tools" },
     { name: "Project Management", category: "Tools" },
-    { name: "React / Next.js", category: "Frontend" },
-    { name: "Tailwind CSS", category: "Frontend" },
-    { name: "TypeScript", category: "Frontend" },
-    { name: "UI/UX Design", category: "Vibecoding Stack" },
+    { name: "Product Management", category: "Tools" },
 ];
 
 export default function Skills() {
     // We'll create a double marquee effect (one moving left, one right)
-    const topMarquee = skillsData.slice(0, 6);
-    const bottomMarquee = skillsData.slice(6, 12);
+    const topMarquee = skillsData.slice(0, 5);
+    const bottomMarquee = skillsData.slice(5, 9);
 
     const getCategoryColor = (category: string) => {
         switch (category) {
