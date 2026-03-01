@@ -5,7 +5,7 @@ import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden w-full px-6">
+        <section className="relative min-h-screen flex flex-col justify-center items-center w-full px-6 py-20">
 
             {/* Background Animated Gradient Meshes */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -45,14 +45,14 @@ export default function Hero() {
             </div>
 
             {/* Main Content */}
-            <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto space-y-8 mt-12">
+            <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto space-y-6 md:space-y-8 mt-4 md:mt-12">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="inline-block"
                 >
-                    <span className="px-4 py-2 rounded-full border border-cyber-purple/40 bg-cyber-purple/10 text-cyber-purple text-sm font-medium tracking-widest uppercase mb-4 shadow-[0_0_10px_rgba(176,38,255,0.2)]">
+                    <span className="px-4 py-2 rounded-full border border-cyber-purple/40 bg-cyber-purple/10 text-cyber-purple text-xs md:text-sm font-medium tracking-widest uppercase mb-4 shadow-[0_0_10px_rgba(176,38,255,0.2)]">
                         Welcome to my digital realm
                     </span>
                 </motion.div>
@@ -61,9 +61,9 @@ export default function Hero() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    className="text-5xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-gray-200 to-gray-500 drop-shadow-sm leading-tight"
+                    className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-gray-200 to-gray-500 drop-shadow-sm leading-tight px-2"
                 >
-                    Hi, I&apos;m <span className="text-white neon-text-blue inline-block mb-4">Sven Belz</span>.<br />
+                    Hi, I&apos;m <span className="text-white neon-text-blue whitespace-nowrap">Sven Belz.</span><br />
                     Scaling digital storefronts through the power of <span className="text-cyber-purple">Vibe Coding</span> and <span className="text-electric-blue">LLMs</span>.
                 </motion.h1>
 
