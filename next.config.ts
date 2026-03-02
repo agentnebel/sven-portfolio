@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  assetPrefix: process.env.NODE_ENV === "production" ? "https://sven-portfolio.pages.dev" : undefined,
   // Performance optimizations
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion"],
