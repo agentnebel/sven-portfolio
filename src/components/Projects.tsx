@@ -34,6 +34,15 @@ const projectsData = [
         demoUrl: "https://agentnebel.github.io/sven-portfolio/",
         isVibecoding: true,
     },
+    {
+        id: 4,
+        title: "SFCC LogLens",
+        description: "Intelligent error clustering and reporting tool for Salesforce Commerce Cloud, built with Electron and React.",
+        tags: ["Electron", "React", "TypeScript", "SFCC"],
+        githubUrl: "https://github.com/agentnebel/sfcc-loglens",
+        demoUrl: "https://github.com/agentnebel/sfcc-loglens",
+        isVibecoding: true,
+    },
 ];
 
 // Reusable card component to isolate mouse-follow hover state
@@ -46,18 +55,18 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => {
 
     useEffect(() => {
         setIsMobile(window.matchMedia("(max-width: 768px)").matches);
-        
+
         const handleResize = () => {
-             setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+            setIsMobile(window.matchMedia("(max-width: 768px)").matches);
         };
-        
+
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     useEffect(() => {
         if (isMobile) return; // Skip mouse tracking on mobile
-        
+
         const handleMouseMove = (e: MouseEvent) => {
             if (!cardRef.current) return;
             const rect = cardRef.current.getBoundingClientRect();
