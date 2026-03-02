@@ -41,6 +41,14 @@ jobs:
         run: npm ci
       - name: Build with Next.js
         run: npx next build
+      - name: Rename _next to assets
+        run: |
+          cd out
+          mv _next assets
+          # Update references in HTML files
+          find . -name "*.html" -exec sed -i 's/\/_next\//\/assets\//g' {} +
+          # Update references in JS files (for dynamic chunks)
+          find ./assets -name "*.js" -exec sed -i 's/\/_next\//\/assets\//g' {} +
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
