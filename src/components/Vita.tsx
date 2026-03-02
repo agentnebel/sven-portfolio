@@ -104,7 +104,7 @@ export default function Vita() {
                     {/* Background Line */}
                     {/* Mobile: Simple static line (Performance) */}
                     <div className="absolute left-[19px] top-0 bottom-0 w-[2px] bg-white/10 rounded-full md:hidden" />
-                    
+
                     {/* Desktop: Centered static line */}
                     <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-white/10 -translate-x-1/2 rounded-full" />
 
@@ -126,9 +126,9 @@ export default function Vita() {
                                         initial={{ scale: 0, opacity: 0 }}
                                         whileInView={{ scale: 1, opacity: 1 }}
                                         viewport={{ once: true, margin: "-50px" }}
-                                        transition={{ 
-                                            type: "spring", 
-                                            stiffness: 200, 
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 200,
                                             damping: 20,
                                             duration: 0.4
                                         }}
@@ -143,36 +143,18 @@ export default function Vita() {
                                     {/* Card Content */}
                                     {/* Mobile: Simple Fade In / Desktop: Slide In */}
                                     <motion.div
-                                        initial={{ 
-                                            opacity: 0, 
+                                        initial={{
+                                            opacity: 0,
                                             y: 20,
-                                            // Only slide on desktop
-                                            x: 0 
+                                            x: 0
                                         }}
-                                        whileInView={{ 
-                                            opacity: 1, 
+                                        whileInView={{
+                                            opacity: 1,
                                             y: 0,
                                             x: 0
                                         }}
-                                        // Desktop override for sliding effect
-                                        variants={{
-                                            desktop: {
-                                                initial: { opacity: 0, x: isEven ? -50 : 50, y: 20 },
-                                                animate: { opacity: 1, x: 0, y: 0 }
-                                            }
-                                        }}
                                         viewport={{ once: true, margin: "-10%" }}
                                         transition={{ duration: 0.5, ease: "easeOut" }}
-                                        // Use a class to apply desktop-only transform logic if needed, 
-                                        // but Framer Motion handles overrides better via variants if we detected screen size.
-                                        // SIMPLER APPROACH: Just remove the X transform for everyone to be safe, 
-                                        // or use a media query prop if available. 
-                                        // Since we can't easily use media query in props without hooks, 
-                                        // I will keep it simple: No X-slide on mobile (handled by initial x:0 above).
-                                        // To re-enable X slide on desktop, we'd need isDesktop state.
-                                        // Performance compromise: Disable X slide globally for smoother feel on all devices, 
-                                        // OR use a small delay.
-                                        // Let's stick to: No X slide on mobile means we just define x:0 here.
                                         className={`w-full md:w-[45%] pl-16 md:pl-0 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'}`}
                                     >
                                         <div className="glass p-6 md:p-8 rounded-2xl border border-white/5 hover:border-white/20 transition-all duration-300">
