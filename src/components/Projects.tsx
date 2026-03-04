@@ -191,7 +191,7 @@ export default function Projects() {
                         transition={{ delay: 0.2 }}
                         className="text-xl text-gray-400 max-w-2xl mx-auto"
                     >
-                        Real code from agentnebel. Hover to interact.
+                        Vibe Coding: faster from idea to shipped.
                     </motion.p>
                 </div>
 
